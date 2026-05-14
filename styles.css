@@ -11,17 +11,54 @@ html, body {
 
 /* Corpo */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #a7fcff;
+background-image: url(night.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  font-family: Arial, sans-serif;
   color: #333;
 }
 
 /* Background*/
 .bg {
-  background-image: url('Skyline-Cityscape-PNG-Image-Transparent.png');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 100% auto;
+  min-height: 100vh;
+}
+
+.bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url('cityscape.png'),
+    url('day.jpg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center, center;
+  background-size: 100% auto, cover;
+  z-index: -1;
+}
+
+.bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url('cityscape.png'),
+    url('night.jpg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom center, center;
+  background-size: 100% auto, cover;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.dark-mode.bg::after {
+  opacity: 1;
 }
 
 /* Container estilo Bootstrap */
@@ -101,16 +138,37 @@ body {
   background: transparent;
 }
 
-.imagem-light {
+.imagem-light,
+.imagem-dark {
   position: absolute;
   top: 15px;
   left: 15px;
-  width: 150px; 
+  width: 150px;
   border-radius: 50%;
   margin-bottom: 20px;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  transform-origin: center center;
 }
 
-.lua {}
+.imagem-light {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.imagem-dark {
+  opacity: 0;
+  transform: rotate(-360deg);
+}
+
+.dark-mode .imagem-light {
+  opacity: 0;
+  transform: rotate(-360deg);
+}
+
+.dark-mode .imagem-dark {
+  opacity: 1;
+  transform: rotate(0deg);
+}
 
 /* Hover */
 .btn:hover {
@@ -119,25 +177,8 @@ body {
 
 /* Tema escuro */
 .dark-mode {
-  background-image: url(night.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: 100vh;
 }
-
-.imagem-dark {display: none;}
-.dark-mode .bg {
-  background-image: url(Skyline-Cityscape-PNG-Image-Transparent.png);
-}
-.dark-mode .imagem-dark {display: block;}
-.dark-mode .imagem-light {display: none;}
-.imagem-dark {position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 150px; 
-  border-radius: 50%;
-  margin-bottom: 20px;}
 
 .dark-mode .btn-outline {
   color: #ffffff;
