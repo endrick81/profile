@@ -178,9 +178,11 @@ background-image: url(night.jpg);
 /* Tema escuro */
 .dark-mode {
   min-height: 100vh;
+
 }
 
 .dark-mode .btn-outline {
   color: #ffffff;
   border-color: #f1f1f1;
 }
+.dark-mode .title {color: #f1f1f1;}
