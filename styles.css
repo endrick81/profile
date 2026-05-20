@@ -11,10 +11,7 @@ html, body {
 
 /* Corpo */
 body {
-background-image: url(night.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
   color: #333;
 }
 
@@ -31,7 +28,7 @@ background-image: url(night.jpg);
   width: 100%;
   height: 100%;
   background-image: 
-    url('cityscape.png'),
+    url('cityscape-dia.png'),
     url('day.jpg');
   background-repeat: no-repeat, no-repeat;
   background-position: bottom center, center;
@@ -47,7 +44,7 @@ background-image: url(night.jpg);
   width: 100%;
   height: 100%;
   background-image: 
-    url('cityscape.png'),
+    url('cityscape-noite.png'),
     url('night.jpg');
   background-repeat: no-repeat, no-repeat;
   background-position: bottom center, center;
@@ -60,6 +57,8 @@ background-image: url(night.jpg);
 .dark-mode.bg::after {
   opacity: 1;
 }
+
+
 
 /* Container estilo Bootstrap */
 .container {
@@ -125,7 +124,13 @@ background-image: url(night.jpg);
   position: absolute;
   top: 15px;
   right: 15px;
-  border-radius: 40%;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .btn-dark {
